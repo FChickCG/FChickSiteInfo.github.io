@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FChick Info</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f1a 100%);
+            min-height: 100vh;
+            color: #c8f98c;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Неоновое свечение */
+        .neon-text {
+            color: #c8f98c;
+            text-shadow: 
+                0 0 5px #c8f98c,
+                0 0 10px #c8f98c,
+                0 0 20px #a8e66e,
+                0 0 40px #8fd14f;
+        }
+
+        .neon-button {
+            background: transparent;
+            color: #c8f98c;
+            border: 2px solid #c8f98c;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 0;
+            box-shadow: 
+                0 0 5px #c8f98c,
+                inset 0 0 5px #c8f98c;
+        }
+
+        .neon-button:hover {
+            background: #c8f98c;
+            color: #0a0a0a;
+            box-shadow: 
+                0 0 10px #c8f98c,
+                0 0 20px #a8e66e,
+                0 0 40px #8fd14f,
+                inset 0 0 10px #c8f98c;
+            transform: scale(1.05);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+
+        .footer-text {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            max-width: 350px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            opacity: 0.85;
+            text-align: left;
+            text-shadow: 0 0 3px #c8f98c;
+        }
+
+        /* Анимация пульсации для неона */
+        @keyframes neonPulse {
+            0%, 100% {
+                text-shadow: 
+                    0 0 5px #c8f98c,
+                    0 0 10px #c8f98c,
+                    0 0 20px #a8e66e,
+                    0 0 40px #8fd14f;
+            }
+            50% {
+                text-shadow: 
+                    0 0 10px #c8f98c,
+                    0 0 20px #a8e66e,
+                    0 0 40px #8fd14f,
+                    0 0 80px #7bc143;
+            }
+        }
+
+        .neon-text {
+            animation: neonPulse 2s ease-in-out infinite;
+        }
+
+        /* Декоративные элементы */
+        .glow-orb {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(136, 209, 79, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .orb-1 { top: -100px; right: -100px; }
+        .orb-2 { bottom: -100px; left: -100px; }
+
+        /* Адаптивность */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .subtitle { font-size: 1.1rem; }
+            .footer-text { 
+                position: static; 
+                max-width: 100%; 
+                text-align: center;
+                margin-top: 40px;
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Декоративные неоновые сферы -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <div class="container">
+        <!-- Заголовок -->
+        <h1 class="neon-text">FChick Info</h1>
+        
+        <!-- Подзаголовок -->
+        <p class="subtitle neon-text">My contacts on social networks</p>
+        
+        <!-- Кнопки -->
+        <div class="buttons">
+            <a href="https://t.me/roskomnadzororiginal" target="_blank" class="neon-button">
+                My telegram profile
+            </a>
+            <a href="https://t.me/unitygamessr" target="_blank" class="neon-button">
+                My telegram channel
+            </a>
+        </div>
+    </div>
+
+    <!-- Текст в левом нижнем углу -->
+    <p class="footer-text neon-text">
+        Hi, I'm FChick. I'm a developer of various games and also make mods for Chicken Gun (Chicken Gun private servers). I currently live in Russia. I also make a lot of Roblox games.
+    </p>
+
+    <script>
+        // Небольшой эффект при клике на кнопки
+        document.querySelectorAll('.neon-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
